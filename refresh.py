@@ -9,7 +9,7 @@ class Refresh:
         self.refresh_token = refresh_token
         self.base_64 = base_64
 
-    def refresh(self):
+    def get_refreshed_token(self):
 
         query = "https://accounts.spotify.com/api/token"
 
@@ -19,10 +19,6 @@ class Refresh:
                                  headers={"Authorization": "Basic " + base_64})
 
         response_json = response.json()
-        print(response)
-        print(response_json)
-
         return response_json["access_token"]
 
-s = Refresh()
-s.refresh()
+
